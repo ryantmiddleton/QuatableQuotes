@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="all_quotes_wrapper">
+        <div id="header">
+            <h1>Welcome {{request.session.user_name}}</h1>
+            <a href="/edit_user" id="link1">Edit my Account</a>
+            <form action="/logout">
+            <input type="submit" id="link2" value="Logout">
+            </form>
+        </div>
+        <div id="errors">
+            {% if messages %}
+            <ul class="error_messages">
+                {% for msg in messages %}
+                    <li {% if msg.tags %} class="{{msg.tags}}"
+                        {% endif %}>{{ msg }}</li>
+                    </li>
+                {% endfor%}
+            </ul>
+            {% endif %}
+            </div>
+        <div id="quotes_list">
+            <h2>Quotes</h2>
+            {% for quote in all_quotes %}
+            <div id="quote_box">
+            <p>{{quote.quoted_by}} said:</P>
+            <p>"{{quote.content}}"</p>
+            <br>
+            <p>Posted by: <a href="user_page/{{quote.posted_by.id}}">{{quote.posted_by.first_name}} {{quote.posted_by.last_name}}</a></p>
+            <br>
+            <div id="like_box">{{quote.likes.count}} people like this
+                <form action="add_like/{{quote.id}}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Like">
+                </form>
+            </div>
+                {% if request.session.user_id == quote.posted_by.id %}
+                <a href="delete_quote/{{quote.id}}">Delete</a> 
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div id="add_quote_container">
+            <h2>Add Quote</h2>
+            <form action="/add_quote" method ="post">
+            {% csrf_token %}
+            <div class="labels">
+                <p>Author:</p>
+                <p>Quote:</p>
+            </div>
+            <div class="input">
+                <p><input type="text" name="author_txt"></p>
+                <textarea id="content_txt" name="content_txt" cols=40 rows=10></textarea>
+            </div>
+                <br>
+                <input type="submit" value = "Add Quote">
+            </form>
+        </div>
+
+    </div>
+
+        
+</body>
+</html>

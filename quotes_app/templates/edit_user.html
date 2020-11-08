@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="user_wrapper">
+        <div id="header">
+            <h1>Edit my Account</h1>
+            <a href="/quotes" id="link1">Back</a>
+            <form action="/logout">
+            <input type="submit" id="link2" value="Logout">
+            </form>
+        </div>
+        {% if messages %}
+        <ul class="error_messages">
+            {% for msg in messages %}
+                <li {% if msg.tags %} class="{{msg.tags}}"
+                    {% endif %}>{{ msg }}</li>
+                </li>
+            {% endfor%}
+        {% endif %}
+        </ul>
+        <div id="user_info_list">
+            <form action="/update_user" id="edit_user_frm" method="post">
+            {% csrf_token %}
+                <div class="labels">
+                    <p>First Name:</p>
+                    <p>Last Name:</p>
+                    <p>Email:</p>
+                </div>
+                <div class="input">
+                    <p><input type="text" id="first_name_txt" name="first_name_txt" value="{{user.first_name}}"></p>
+                    <p><input type="text" id="last_name_txt" name="last_name_txt" value="{{user.last_name}}"></p>
+                    <p><input type="email" id="email_txt" name="email_txt" value="{{user.email}}"></p>
+                </div>
+                <br>
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

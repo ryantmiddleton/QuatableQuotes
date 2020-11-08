@@ -1,0 +1,153 @@
+*{
+    margin:0px;
+    padding:0px;
+    /* border:1px dotted red; */
+}
+
+/* Registration Page  */
+.error_messages {
+    margin-left:20px;
+}
+#page_heading{
+    margin-left:300px;
+}
+#page_wrapper div{
+    display:inline-block;
+    vertical-align:top;
+}
+
+#register_container *{
+    display:block;
+}
+
+#register_container h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+#register_container input[type=submit] {
+    margin-left:100px;
+    margin-top:10px;
+}
+
+#login_container {
+    margin-left:200px;
+}
+#login_container *{
+    display:block;
+}
+
+#login_container h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+#login_container input[type=submit] {
+    margin-left:130px;
+    margin-top:10px;
+}
+
+.labels_container *{
+    line-height:25px;
+    display:block;
+}
+
+.input_container *{
+    margin-top:5px;
+    display:block;
+}
+
+#all_users_table {
+    border:1px solid black;
+}
+#all_users_table tr:nth-child(odd){ 
+    background: #adcaf1;
+}
+#all_users_table tr:nth-child(even){
+    background: #dce9fa;
+}
+
+/*Header */
+/* #header {
+    border-bottom:2px solid black;
+} */
+#header *{
+    display:inline-block;
+}
+#header #link1 {
+    margin-left:40%;
+}
+#header #link2 {
+    margin-left:5%;
+}
+#header #link3 {
+    margin-left:5%;
+}
+
+/* All Quotes Page */
+#all_quotes_wrapper #quotes_list, #add_quote_container {
+    margin-top:15px;
+    display:inline-block;
+    vertical-align:top;
+}
+#all_quotes_wrapper h2{
+    text-align:center;
+}
+#quotes_list {
+    margin-left:5%;
+    width:30%;
+}
+#quote_box{
+    border:1px solid black;
+    margin-top:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+#like_box *{
+    display:inline-block;
+}
+#like_box input[type=submit]{
+    margin-left:10px;
+}
+
+#add_quote_container {
+    width:400px;
+    margin-left:5%;
+}
+#add_quote_container h2{
+    margin-bottom:10px;
+}
+#add_quote_container *{
+    vertical-align:top;
+}
+#add_quote_container .labels, .input{
+    display:inline-block;
+}
+
+#add_quote_container input[type=submit]{
+    margin-top:10px;
+    margin-left:300px;
+}
+#errors {
+    margin-top:20px;
+    margin-left:450px;
+}
+/*User Detail Page */
+#user_quotes_list {
+    width:300px;
+}
+#user_quote_box {
+    border:1px solid black;
+    margin-top:10px;
+}
+#user_info_list{
+    margin-top:20px;
+}
+#user_info_list .labels, .input {
+    vertical-align:top;
+    display:inline-block;
+}
+#user_info_list input[type=submit]{
+    margin-top:10px;
+    margin-left:185px;
+}
