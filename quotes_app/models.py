@@ -84,7 +84,7 @@ class LikeManager(models.Manager):
     def validate_like(self, request, quote_id):
         errors={}
         if Like.objects.filter(user__id=request.session['user_id'], quote__id=quote_id):
-            errors['like']="User has already liked this quote"
+            errors['like']="You have already liked this quote"
         return errors
 
 class Like(models.Model):
