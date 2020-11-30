@@ -1,1 +1,0 @@
-secret_key = 'ctw*z&elb=u2o%q!_m86e*s38!il9@t+s6&ohnw%q$(c#eltxs'
